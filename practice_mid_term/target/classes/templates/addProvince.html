@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Add Province</h1>
+
+	<form method="post" action="#" th:action="@{/insertProvince}"
+		th:object="${province}">
+		<input type="hidden" name="id" th:field="*{id}" /> Add Province: <input
+			type="text" name="province" th:field="*{provinceName}" /> <br>
+<!-- 		Province List: <select th:field="*{province}">
+			<option th:each="p:${provinceList}" th:value="${p.provinceName}"
+				th:text="${p.provinceName}" /></option></select><br> -->
+
+			<input type="submit" value="Add!" />
+			
+			<a href="addCustomer">Add Customer</a>
+			<a href="searchCustomer">Search Customer</a>
+			<a href="/">Home</a>
+	</form>
+</body>
+</html>

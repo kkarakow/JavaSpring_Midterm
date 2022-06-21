@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/stylesheetMid.css}" rel="stylesheet" />
+<title>Display Car Models</title>
+</head>
+<body>
+
+	<div class="table-wrapper">
+		<table class="fl-table">
+			<thead>
+				<tr>
+					<th>Model No.</th>
+					<th>Model Name</th>
+					<th>Model Type</th>
+					<th>Price</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c : ${carModelList}">
+					<td th:text="${c.modelNo}">314141</td>
+					<td th:text="${c.modelName}">SE</td>
+					<td th:text="${c.carType}">Camry</td>
+					<td th:text="${c.price}">$29.250</td>
+					<td th:text="${c.description}">Litre 4-cylinder DOHC 16-Valve</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="table-wrapper">
+	<table class="fl-table">
+		<tbody>
+			<tr>
+				<td><a href="/"><button class="button">Home</button></a></td>
+				<td><a href="addCarModel"><button class="button">Add Car</button></a></td>
+				<td><a href="/searchCarByType"><button class="button">Search Car</button></a></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>			
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/stylesheetMid.css}" rel="stylesheet" />
+<title>Add Car Model</title>
+</head>
+<body>
+	<div class="table-wrapper">
+
+		<form method="post" action="#" th:action="@{/processForm}"
+			th:object="${carModel}">
+
+			<table class="fl-table">
+				<thead>
+					<tr>
+						<th colspan="2">Add New Car Model</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="hidden" name="id" th:field="*{id}" /></td>
+					</tr>
+					<tr>
+						<td>Model Number:</td>
+						<td><input type="text" name="modelNo" th:field="*{modelNo}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Model Name:</td>
+						<td><input type="text" name="modelName"
+							th:field="*{modelName}" /></td>
+					<tr>
+						<td>Car Type:</td>
+						<td><select th:field="*{carType}">
+								<option th:each="c:${carTypeList}" th:value="${c.carType}"
+									th:text="${c.carType}" /></option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Model Price:</td>
+						<td><input type="number" step="0.01" name="price" th:field="*{price}" /></td>
+					<tr>
+						<td>Description:</td>
+						<td><input type="text" name="description"
+							th:field="*{description}" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input class="button" type="submit"
+							value="Add Car" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<div class="table-wrapper">
+		<table class="fl-table">
+			<thead>
+				<tr>
+					<th>Model No.</th>
+					<th>Model Name</th>
+					<th>Model Type</th>
+					<th>Price</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c : ${carModelList}">
+					<td th:text="${c.modelNo}">314141</td>
+					<td th:text="${c.modelName}">SE</td>
+					<td th:text="${c.carType}">Camry</td>
+					<td th:text="${c.price}">$29.250</td>
+					<td th:text="${c.description}">Litre 4-cylinder DOHC 16-Valve</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="table-wrapper">
+		<table class="fl-table">
+			<tbody>
+				<tr>
+					<td><a href="/"><button class="button">Home</button></a></td>
+					<td><a href="/displayCarModels"><button class="button">Display
+								Cars</button></a></td>
+					<td><a href="/searchCarByType"><button class="button">Search
+								Car</button></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+</html>

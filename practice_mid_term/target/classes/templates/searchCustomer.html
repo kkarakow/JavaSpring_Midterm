@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Search Customer</title>
+</head>
+<body>
+<h1>Search Customer</h1>
+
+	<form method="post" action="#" th:action="@{/searchCustomer}"
+		th:object="${customer}">
+
+		Customer Province: 
+			<select th:field="*{custProvince}">
+			<option th:each="p:${provinceList}" th:value="${p.provinceName}"
+				th:text="${p.provinceName}" /></option></select><br>
+
+			
+		<input type="submit" value="Search!" />
+
+</form>
+		<table>
+			<tr th:each="c : ${searchList}">
+				<td th:text="${c.custName}">Frank</td>
+				<td th:text="${c.custAddress}">15 Main St</td>
+				<td th:text="${c.custProvince}">Ontario</td>
+				<td th:text="${c.custCountry}">Canada</td>
+			</tr>
+		</table>
+		
+	<a href="addProvince">Add Province</a>
+	<a href="addCustomer">Add Customer</a>
+	<a href="/">Home</a>
+	
+</body>
+</html>

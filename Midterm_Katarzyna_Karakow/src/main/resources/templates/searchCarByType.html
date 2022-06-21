@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/stylesheetMid.css}" rel="stylesheet" />
+<title>Search Car By Type</title>
+</head>
+<body>
+
+	<div class="table-wrapper">
+		<form method="post" action="#" th:action="@{/searchCarByType}"
+			th:object="${carModel}">
+
+			<table class="fl-table">
+				<thead>
+					<tr>
+						<th colspan="2">Search for Car</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Car Type:</td>
+						<td><select th:field="*{carType}">
+								<option th:each="c:${carTypeList}" th:value="${c.carType}"
+									th:text="${c.carType}" /></option>
+						</select></td>
+					<tr>
+						<td colspan="2"><input class="button" type="submit"
+							value="Search" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<div class="table-wrapper">
+		<table class="fl-table">
+			<thead>
+				<tr>
+					<th>Model No.</th>
+					<th>Model Name</th>
+					<th>Model Type</th>
+					<th>Price</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c : ${searchList}">
+					<td th:text="${c.modelNo}">314141</td>
+					<td th:text="${c.modelName}">SE</td>
+					<td th:text="${c.carType}">Camry</td>
+					<td th:text="${c.price}">$29.250</td>
+					<td th:text="${c.description}">Litre 4-cylinder DOHC 16-Valve</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="table-wrapper">
+		<table class="fl-table">
+			<tbody>
+				<tr>
+					<td><a href="/"><button class="button">Home</button></a></td>
+					<td><a href="/displayCarModels"><button class="button">Display
+								Cars</button></a></td>
+					<td><a href="/addCarModel"><button class="button">Add
+								Car</button></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

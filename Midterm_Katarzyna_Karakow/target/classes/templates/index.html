@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" xmlns:th="www.thymeLeaf.org">
+<link th:href="@{/css/stylesheetMid.css}" rel="stylesheet" />
+<title>Home</title>
+</head>
+<body>
+	<div class="table-wrapper">
+		<table class="fl-table">
+			<thead>
+				<tr>
+					<th colspan="3">
+						<h1>Welcome to Kate's Toyota Shop</h1>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><h2>
+							<a href="/addCarModel"><button class="button">Add Car Model</button></a>
+						</h2></td>
+					<td><h2>
+							<a href="/displayCarModels"><button class="button">Display Cars</button></a>
+						</h2></td>
+					<td><h2>
+							<a href="/searchCarByType"><button class="button">Search Car</button></a>
+						</h2></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+</html>
